@@ -1,10 +1,15 @@
 using CodeSample.Application.Services;
+using CodeSample.gRPC.Interceptors;
 using CodeSample.gRPC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddGrpc();
+builder.Services.AddGrpc(options =>
+{
+    options.Interceptors.Add<LoggingInterceptor>();
+    options.Interceptors.Add<ExceptionHandlingInterceptor>();
+}); 
 builder.Services.AddSingleton<PersonService>();
 
 var app = builder.Build();
