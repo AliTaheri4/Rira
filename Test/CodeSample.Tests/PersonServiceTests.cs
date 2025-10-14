@@ -1,4 +1,5 @@
-﻿using CodeSample.Domain.Entities;
+﻿using CodeSample.Application.Services;
+using CodeSample.Domain.Entities;
 using FluentAssertions;
 
 namespace CodeSample.Tests
